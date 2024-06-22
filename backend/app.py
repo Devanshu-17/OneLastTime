@@ -52,7 +52,7 @@ llm = ChatGroq(groq_api_key=groq_key,
                model='mixtral-8x7b-32768',
                temperature=0.2)  # set temperature by your own
 
-threshold = 0.82
+threshold = 0.87
 
 class QdrantVectorStore:
     def __init__(self, qdrant_uri, qdrant_api, threshold):
