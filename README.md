@@ -1,6 +1,13 @@
 # OneLastTime
 Team OneLastTime project for the KLEOS 2.0 2024 hackathon
 
+<p align="center">
+  <br />
+  <a href="https://github.com/Devanshu-17/OneLastTime/blob/main/frontend/README.md"><b>Checkout the Demo here »</b></a>
+  <br />
+  <br />
+</p>
+
 ## Problem Statement:
 
 <img width="793" alt="New Screen Shot Name 2024-06-22 at 3 52 16 AM" src="https://github.com/Devanshu-17/OneLastTime/assets/93381397/902587fd-c7ee-4b2d-ace9-066aedee7670">
@@ -48,7 +55,6 @@ Team OneLastTime project for the KLEOS 2.0 2024 hackathon
 * [x] Create a landing page.
 * [x] Create a Chat Page for user to interact with.
 * [x] Create a Medical Expert page where they can validate and verify the user's query.
-
 
 ## Sources:
 
