@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+       .container {
+            max-width: 600px;
+            margin: auto;
+        }
+       .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+       .response {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+       .loading {
+            font-style: italic;
+            color: #999;
+        }
+        /* Add custom styles for the redirect button */
+       .redirect-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+       .redirect-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Redirect button -->
+    <a href="/static/data.html" class="redirect-btn">Go to Doctor Data</a>
+
+    <div class="container">
+        <h1>Medical Chatbot</h1>
+        <div class="form-group">
+            <label for="question">Enter your medical question:</label>
+            <textarea id="question" rows="4"></textarea>
+        </div>
+        <button onclick="submitQuestion()">Submit</button>
+        <div class="response" id="response"></div>
+    </div>
+
+    <script>
+        async function submitQuestion() {
+            const question = document.getElementById('question').value;
+            const responseDiv = document.getElementById('response');
+            responseDiv.innerHTML = 'Loading...';
+
+            try {
+                const response = await fetch('http://localhost:8000/query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.response === "No answer available") {
+                        responseDiv.innerHTML = 'No result found in database. Searching web...';
+
+                        const webResponse = await fetch('http://localhost:8000/query', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ question })
+                        });
+
+                        if (webResponse.ok) {
+                            const webData = await webResponse.json();
+                            responseDiv.innerHTML = `<strong>Response:</strong> ${webData.response}`;
+                        } else {
+                            responseDiv.innerHTML = 'Error: Unable to fetch response from the web.';
+                        }
+                    } else {
+                        responseDiv.innerHTML = `<strong>Response:</strong> ${data.response}`;
+                    }
+                } else {
+                    responseDiv.innerHTML = 'Error: Unable to fetch response.';
+                }
+            } catch (error) {
+                responseDiv.innerHTML = 'Error: Unable to fetch response.';
+            }
+        }
+    </script>
+</body>
+</html>

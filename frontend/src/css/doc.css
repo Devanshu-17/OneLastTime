@@ -1,0 +1,87 @@
+.bodydoc {
+    position: fixed;
+    display: flex;
+    font-family: Arial, sans-serif;
+    top: 100px;
+}
+.mainmed{
+    top: 500px;
+}
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    min-width: 30%;
+    height: 100vh;
+    padding: 20px;
+    overflow-y: auto;
+    border-radius: 10px;
+
+}
+
+.doc-main-content {
+    flex-grow: 1;
+    padding: 20px;
+    position: relative; /* Add this to position the notification */
+}
+
+.doc-query-item {
+    padding: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.doc-query-item:hover {
+    background-color: #e9e9e9;
+}
+
+.doc-query-item.active {
+    background-color: #d0d0d0;
+}
+
+.response {
+    margin-bottom: 20px;
+}
+
+.doc-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.doc-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.doc-buttons button.accept {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.doc-buttons button.reject {
+    background-color: #f44336;
+    color: white;
+}
+
+.notification {
+    display: none;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+    position: absolute; /* Position the notification */
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+}
+
+.notification.visible {
+    display: block;
+}

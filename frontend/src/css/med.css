@@ -1,0 +1,174 @@
+form.save-query{
+    display: flex;
+}
+
+#med-but-final {
+    display: block;
+    width: 115px;
+    /* margin: 15px; */
+    border-radius: 10px;
+    margin-left: 15px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#med-but {
+    display: block;
+    width: 115px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.docmain{
+    width: 100vw;
+}
+#med-but:hover {
+    background-color: #0056b3;
+}
+
+.container {
+    max-width: 800px;
+    margin-top: 50px;
+}
+
+
+#med-h1 {
+    text-align: center;
+    width: 100vw;
+}
+
+
+#question {
+    width: 40vw;
+    height: 30vh;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: none;
+    font-size: larger;
+}
+
+#med-label {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.med-form-group {
+    margin-bottom: 15px;
+}
+
+.response {
+    width: 60vw;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.loading {
+    font-style: italic;
+    color: #999;
+}
+
+.warning {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.redirect-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.redirect-btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: relative;
+}
+
+.alert-simple {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.alert-dismissible .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit;
+}
+
+.font__family-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.font__size-16 {
+    font-size: 16px;
+}
+
+.font__weight-light {
+    font-weight: 300;
+}
+
+.font__weight-semibold {
+    font-weight: 600;
+}
+
+.start-icon {
+    margin-right: 10px;
+}
+
+.faa-pulse.animated {
+    animation: faa-pulse 1s infinite;
+}
+
+@keyframes faa-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Review Dashboard</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .sidebar {
+            width: 25%;
+            background-color: #f0f0f0;
+            padding: 20px;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 1px solid #ccc;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .query-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .query-item:hover {
+            background-color: #e9e9e9;
+        }
+        .query-item.active {
+            background-color: #d0d0d0;
+        }
+        .response {
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buttons button.accept {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .buttons button.reject {
+            background-color: #f44336;
+            color: white;
+        }
+        .notification {
+            display: none;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <!-- Queries will be dynamically inserted here -->
+    </div>
+    <div class="main-content" id="main-content">
+        <h2 id="question">Select a query from the left to view details</h2>
+        <p id="response"></p>
+        <div class="buttons" id="buttons" style="display: none;">
+            <button onclick="handleAccept()">Accept</button>
+            <button onclick="handleReject()">Reject</button>
+        </div>
+        <div class="notification" id="notification">Data has been saved successfully!</div>
+    </div>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const questionElement = document.getElementById('question');
+        const responseElement = document.getElementById('response');
+        const buttons = document.getElementById('buttons');
+        const notification = document.getElementById('notification');
+        let selectedQueryId = null;
+
+        async function fetchData() {
+            const response = await fetch('http://localhost:8000/get_queries');
+            const data = await response.json();
+            data.forEach(item => {
+                const queryItem = document.createElement('div');
+                queryItem.className = 'query-item';
+                queryItem.textContent = item.question;
+                queryItem.onclick = () => displayDetails(item);
+                queryItem.dataset.id = item._id;
+                sidebar.appendChild(queryItem);
+            });
+        }
+
+        function displayDetails(item) {
+            selectedQueryId = item._id;
+            questionElement.textContent = `Question: ${item.question}`;
+            responseElement.textContent = `Response: ${item.response}`;
+            buttons.style.display = 'flex';
+
+            document.querySelectorAll('.query-item').forEach(el => el.classList.remove('active'));
+            document.querySelector(`.query-item[data-id="${item._id}"]`).classList.add('active');
+        }
+
+        async function handleAccept() {
+            await updateStatus('accepted');
+            await saveToVectorDatabase();
+            alert('Response accepted');
+            showNotification();
+            resetView();
+        }
+
+        // async function handleReject() {
+        //     await updateStatus('rejected');
+        //     alert('Response rejected');
+        //     resetView();
+        // }
+
+        async function updateStatus(status) {
+            await fetch(`http://localhost:8000/update_status`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id: selectedQueryId,
+                    status: status,
+                }),
+            });
+        }
+
+        async function saveToVectorDatabase() {
+        const question = questionElement.textContent.replace('Question: ', '').trim();
+        const response = responseElement.textContent.replace('Response: ', '').trim();
+
+        await fetch('http://localhost:8000/save_to_qdrant', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                question: question,
+                response: response
+            })
+        });
+    }
+
+    async function handleReject() {
+        const feedback = prompt("Please provide your feedback:");
+        if (feedback) {
+            await updateStatus('rejected');
+            await sendFeedback(feedback);
+            alert('Response rejected and feedback sent');
+            showNotification();
+            resetView();
+        }
+    }
+
+    async function sendFeedback(feedback) {
+        const question = questionElement.textContent.replace('Question: ', '').trim();
+
+        await fetch('http://localhost:8000/save_feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                question: question,
+                feedback: feedback
+            })
+        });
+    }
+
+    async function handleAccept() {
+        await updateStatus('accepted');
+        await saveToVectorDatabase(); // Call function to save to Qdrant
+        alert('Response accepted');
+        showNotification();
+        resetView();
+    }
+
+        function showNotification() {
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+        function resetView() {
+            questionElement.textContent = 'Select a query from the left to view details';
+            responseElement.textContent = '';
+            buttons.style.display = 'none';
+            selectedQueryId = null;
+            document.querySelectorAll('.query-item').forEach(el => el.classList.remove('active'));
+            sidebar.innerHTML = '';
+            fetchData();
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>
