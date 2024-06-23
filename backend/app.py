@@ -57,9 +57,9 @@ frontend_directory = os.path.join(os.path.dirname(__file__), '..', 'frontend')
 # Serve static files
 app.mount("/static", StaticFiles(directory=frontend_directory), name="static")
 
-qdrant_uri = "https://14ea86c5-419c-41e5-b82b-18eec7c016e2.us-east4-0.gcp.cloud.qdrant.io:6333"
-qdrant_api = "cfhdTR3705TH3iU78F6WY6dQGmjWuO2ofiLzuyr4LR3bF8zf4VZ_Rw"
-groq_key = "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"
+qdrant_uri = "<ENTER YOUR QDRANT URI HERE>"
+qdrant_api = "<ENTER YOUR QDRANT API HERE>"
+groq_key = "<ENTER YOUR GROQ API HERE>"
 
 llm = ChatGroq(groq_api_key=groq_key,
                model='mixtral-8x7b-32768',
