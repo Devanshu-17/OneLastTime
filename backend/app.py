@@ -149,7 +149,7 @@ async def chat_query(request: QueryRequest):
    
     if context == "No answer available":
         # Use the AI agent to search the web for information
-        os.environ['SERPER_API_KEY'] = "9e197ad3ca682f2775833b0f274a1f66a6b563e7"
+        os.environ['SERPER_API_KEY'] = "<ENTER YOUR SERPER API HERE>"
         os.environ['GROQ_API_KEY'] = groq_key
 
         search_tool = SerperDevTool(n_results=5)
@@ -366,8 +366,8 @@ async def save_query(request: Request):
 
     
 def send_email(recipient_email, subject, body):
-    sender_email = "pytech.shop@gmail.com"  # Replace with your email
-    password = "myvl litr gdnh dwyr"  # Replace with your email password or app-specific password
+    sender_email = "<ENTER YOUR EMAIL HERE>"  # Replace with your email
+    password = "<ENTER YOUR APP-SPECIFIC PASSWORD HERE>"  # Replace with your email password or app-specific password
 
     message = MIMEMultipart()
     message["From"] = sender_email
