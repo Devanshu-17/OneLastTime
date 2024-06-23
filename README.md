@@ -7,7 +7,7 @@ Team OneLastTime project for the KLEOS 2.0 2024 hackathon
 
 ## Tentative System Architecture:
 
-<img width="1268" alt="New Screen Shot Name 2024-06-22 at 3 51 58 AM" src="https://github.com/Devanshu-17/OneLastTime/assets/93381397/0bdf949f-99f7-42af-9512-ade727ac998a"><br />
+<img width="1229" alt="New Screen Shot Name 2024-06-23 at 8 15 23 AM" src="https://github.com/Devanshu-17/OneLastTime/assets/93381397/797878ea-4307-4447-af85-80054152f958">
 
 <br />
 
