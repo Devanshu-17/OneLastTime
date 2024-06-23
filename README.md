@@ -37,15 +37,17 @@ Team OneLastTime project for the KLEOS 2.0 2024 hackathon
 ### PART 2: Backend
 
 * [x] Integrate the various pipeline into a single backend file (We will use FastAPI)
-* [ ] Create a MongoDB database for storing logs and Medical Expert's details.
-* [ ] Develop the workflow for connecting the API calls between the Medical Experts, the LLM and the users.
+* [x] Create a MongoDB database for storing logs and Medical Expert's details.
+* [x] Develop the workflow for connecting the API calls between the Medical Experts, the LLM and the users.
+
+* [x] Email Notification Service 
 
 ### PART 3: Frontend
 
 * [x] Create a demo frontend to show working of backend.
-* [ ] Create a landing page.
-* [ ] Create a Chat Page for user to interact with.
-* [ ] Create a Medical Expert page where they can validate and verify the user's query.
+* [x] Create a landing page.
+* [x] Create a Chat Page for user to interact with.
+* [x] Create a Medical Expert page where they can validate and verify the user's query.
 
 
 ## Sources:
