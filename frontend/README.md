@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+## Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Home page
 
-## Available Scripts
+![image](https://github.com/Devanshu-17/OneLastTime/assets/93381397/1ec6dcd2-ef2c-43ad-936d-5dd3e87d0ff6)
 
-In the project directory, you can run:
 
-### `npm start`
+### Medical Chatbot
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![image](https://github.com/Devanshu-17/OneLastTime/assets/93381397/bc2321e6-2044-4b8b-ad98-cb94548e870e)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Alert for Unverified data found on web
 
-### `npm test`
+![image](https://github.com/Devanshu-17/OneLastTime/assets/93381397/8e37f695-f41b-4cc1-9350-0f645b928de2)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Medical Expert Dashboard
 
-### `npm run build`
+![image](https://github.com/Devanshu-17/OneLastTime/assets/93381397/4ea3d64a-f20e-45b0-96ef-ca72a162d51a)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Database Schema
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="1432" alt="New Screen Shot Name 2024-06-24 at 12 11 52 AM" src="https://github.com/Devanshu-17/OneLastTime/assets/93381397/e2bbbdf0-882e-42ac-9c3f-3f62a7880ad8">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Vector Database
 
-### `npm run eject`
+<img width="1486" alt="New Screen Shot Name 2024-06-24 at 12 13 12 AM" src="https://github.com/Devanshu-17/OneLastTime/assets/93381397/b0770897-cb1f-45fc-b634-32b358f4a516">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Email Notification
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img width="1152" alt="New Screen Shot Name 2024-06-24 at 12 14 39 AM" src="https://github.com/Devanshu-17/OneLastTime/assets/93381397/0487cce2-6c95-44f9-ab84-ef06e7415e05">
